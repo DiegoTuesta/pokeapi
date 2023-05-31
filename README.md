@@ -9,3 +9,4 @@ Proyecto realizado con ReactJs, Redus y React Router.
 * Tiene ruta de detalle con id del pokemon para mostrar el detalle del pokemon con el id en la url
 * Tienen modo dark cuando se hace click en el circulo blanco del navbar
 
+[Link del proyecto despleago aquí](https://pokedex-diego-tuesta.netlify.app/)
