@@ -12,3 +12,4 @@ export const userSlice = createSlice({
 
 export const {addName} = userSlice.actions;
 export default userSlice.reducer
+

@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 // import './App.css'
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
@@ -7,12 +7,16 @@ import Pokemon from "./pages/Pokemon";
 import NotFound from "./pages/NotFound";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import MainLayout from './components/MainLayout'
+import Loader from "./components/Loader";
+import { useSelector } from "react-redux";
 
 function App() {
-  const [count, setCount] = useState(0);
+
+  const isLoading = useSelector( state => state.loader )
 
   return (
     <HashRouter>
+      { isLoading && <Loader /> }
       <Routes>
         <Route path="/" element={<Login />} />
         <Route element={<ProtectedRoutes />}>

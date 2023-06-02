@@ -4,14 +4,10 @@ import axios from "axios";
 const PokemonList = ({url}) => {
   const [data, setData] = useState([])
 
-  const getData = async() => {
-    try {
-       await axios.get(url).then(
+  const getData = () => {
+    axios.get(url).then(
         result => setData(result.data)
       ).catch(console.error)
-    } catch (error) {
-      
-    }
   }
 
   useEffect( () =>{

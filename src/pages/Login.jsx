@@ -9,6 +9,7 @@ const Login = () => {
   const [user, setUser] = useState('')
   const dispatch = useDispatch();
   const navigate = useNavigate()
+  
   const newName= () => {
     if(user.length > 2) {
       dispatch( addName(user)) 
@@ -26,12 +27,12 @@ const Login = () => {
           <img src="/assets/img/pokeapi.svg" alt="pokedex-diego-tuesta" />
         </div>
         <div className="content-body">
-          <h2>¡Hola entrenador!</h2>
-          <p>Para poder comenzar, ingresa tu nombre</p>
+          <h2>¡Hi Trainer!</h2>
+          <p>enter your name to get started</p>
         </div>
         <div className="content-footer">
-          <input onChange={(e) => setUser(e.target.value) } type="text" placeholder="Ingresa tu nombre" />
-          <button onClick={newName} >Comenzar</button>
+          <input onChange={(e) => setUser(e.target.value) } type="text" placeholder="Enter your name" />
+          <button onClick={newName} >Start</button>
         </div>
         <Footer />
       </div>

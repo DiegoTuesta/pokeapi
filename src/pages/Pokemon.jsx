@@ -1,22 +1,23 @@
 import axios from "axios";
 import { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
-import Loader from "../components/Loader";
-import { useDispatch } from "react-redux";
-import { changeDisplay } from "../store/slices/loader.slice";
+import {useDispatch } from "react-redux";
+import { isLoading } from "../store/slices/loader.slice";
 
 const Pokemon = () => {
   const [data, setData] = useState({}); 
   const {id} = useParams()
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const getData = async() => {
-    
-    await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then( result =>{ setData(result.data); dispatch(changeDisplay('none')) }).catch(console.error)
+    dispatch(isLoading(true))
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+    .then( result => setData(result.data))
+    .catch(console.error)
+    .finally(dispatch(isLoading(false)))
   }
   useEffect( ()=> {
     getData()
-    dispatch(changeDisplay('flex'))
   }, [])
 
   return (

@@ -2,13 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const loaderSlice = createSlice({
     name: 'loader',
-    initialState: 'none',
+    initialState: false,
     reducers: {
-        changeDisplay: (state, action) =>{
+        isLoading: (state, action) =>{
             return action.payload
         }
     }
 })
 
-export const {changeDisplay} = loaderSlice.actions;
+export const {isLoading} = loaderSlice.actions;
 export default loaderSlice.reducer
